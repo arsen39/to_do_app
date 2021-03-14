@@ -1,0 +1,23 @@
+$base-color: #af7eeb;
+$secondary-color: #e3e9ff;
+
+.input{
+  border: 3px solid $base-color;
+  border-radius: 5px;
+  width: 500px;
+  height: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.submitBtn{
+  position: absolute;
+  left: 61.3%;
+  top: 11.2%;
+  outline: none;
+  background-color: $secondary-color;
+  border: 3px solid $base-color;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+}

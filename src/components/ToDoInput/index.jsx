@@ -30,13 +30,13 @@ const ToDoInput = () => {
       >
         <Form>
           <label>
-            <Field type="text" name="input" />
+            <Field type="text" name="input" className={styles.input}/>
             <ErrorMessage
               name="input"
               children={(msg) => <ErrMsg msg={msg} />}
             />
           </label>
-          <button type="submit">+</button>
+          <button type="submit" className={styles.submitBtn}>+</button>
         </Form>
       </Formik>
     </div>
