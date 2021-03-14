@@ -3,10 +3,12 @@ import Task from './Task'
 class DB {
   constructor() {
     this.map = new Map();
+    this.idCounter = 0;
   }
 
   newTask (taskText) {
-    this.map.set(this.map.size, new Task(this.map.size, taskText));
+    this.map.set(this.idCounter, new Task(this.idCounter, taskText));
+    this.idCounter++;
   }
 
   deleteTask (taskId) {
