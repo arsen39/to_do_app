@@ -1,30 +1,41 @@
-import React, {useState, useContext} from 'react';
-import styles from './ToDoInput.module.scss';
+import React, { useContext } from "react";
+import styles from "./ToDoInput.module.scss";
 import TasksContext from "../../contexts/TasksContext";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import INPUT_SCHEMA from "../../common/validationSchema";
+import ErrMsg from '../ErrMsg';
 
-// import DB from "../../db/DB";
-// const db = new DB();
+const ToDoInput = () => {
+  const [tasks, setTasks] = useContext(TasksContext);
 
-const ToDoInput = (props) => {
-  const [inputValue, setInputValue] = useState("");
-  const [tasks, setTasks] = useContext(TasksContext)
+  const handleBtnClick = (inputValue) => {
+    const oldTasks = tasks;
+    oldTasks.newTask(inputValue);
+    setTasks(oldTasks);
+  };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-    console.log(tasks);
-  }
-
-  const handleIBtnClick = () => {
-    setTasks(tasks.newTask(inputValue));
-    console.log(tasks);
-  }
+  const onSubmit = (values, formikBag) => {
+    formikBag.resetForm();
+    handleBtnClick(values.input);
+  };
 
   return (
     <div>
-      <input type="text" value={inputValue} onChange={handleInputChange}/>
-      <button onClick={handleIBtnClick}>+</button>
+      <Formik
+        initialValues={{ input: "" }}
+        onSubmit={onSubmit}
+        validationSchema={INPUT_SCHEMA}
+      >
+        <Form>
+          <label>
+            <Field type="text" name="input" />
+            <ErrorMessage name='input' children={(msg) => <ErrMsg msg={msg}/>} />
+          </label>
+          <button type="submit">+</button>
+        </Form>
+      </Formik>
     </div>
   );
-}
+};
 
 export default ToDoInput;
