@@ -5,10 +5,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import INPUT_SCHEMA from "../../common/validationSchema";
 import ErrMsg from "../ErrMsg";
 import _ from "lodash";
+import cx from "classnames";
 
 const ToDoInput = () => {
   const [tasks, setTasks] = useContext(TasksContext);
-  
 
   const handleBtnClick = (inputValue) => {
     const newTasks = _.cloneDeep(tasks);
@@ -30,13 +30,25 @@ const ToDoInput = () => {
       >
         <Form>
           <label>
-            <Field type="text" name="input" className={styles.input}/>
-            <ErrorMessage
+            <Field name="input">
+              {({ field, form, meta }) => (
+                <input
+                  type="text"
+                  {...field}
+                  className={cx(styles.input, {
+                    [styles.inputInvalid]: meta.error,
+                  })}
+                />
+              )}
+            </Field>
+            {/* <ErrorMessage
               name="input"
               children={(msg) => <ErrMsg msg={msg} />}
-            />
+            /> */}
           </label>
-          <button type="submit" className={styles.submitBtn}>+</button>
+          <button type="submit" className={styles.submitBtn}>
+            +
+          </button>
         </Form>
       </Formik>
     </div>

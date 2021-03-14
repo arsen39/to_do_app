@@ -5,6 +5,9 @@ $base-color: #af7eeb;
   font-weight: bold;
   font-size: 1.5rem;
   margin: 14px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .doneTaskText{
