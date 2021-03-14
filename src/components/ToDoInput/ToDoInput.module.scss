@@ -1,5 +1,4 @@
-$base-color: #af7eeb;
-$secondary-color: #e3e9ff;
+@import '../../common/CommonStyles.module.scss';
 
 .formWrapper{
   position: relative;

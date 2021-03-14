@@ -1,4 +1,4 @@
-$base-color: #af7eeb;
+@import '../../common/CommonStyles.module.scss';
 
 .taskText {
   color: $base-color;
