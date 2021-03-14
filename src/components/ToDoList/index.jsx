@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import TasksContext from "../../contexts/TasksContext";
 import Task from "../Task";
 import styles from './ToDoList.module.scss'
@@ -16,6 +16,7 @@ const ToDoList = () => {
       {listMaker()}
     </div>
   );
+  
 }
 
 export default ToDoList;

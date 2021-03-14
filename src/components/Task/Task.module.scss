@@ -1,0 +1,26 @@
+$base-color: #af7eeb;
+
+.taskText {
+  color: $base-color;
+  font-weight: bold;
+}
+
+.doneTaskText{
+  text-decoration: line-through;
+}
+
+.taskWrapper{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.trashIcon{
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.rbtn{
+  color:$base-color;
+  cursor: pointer;
+}

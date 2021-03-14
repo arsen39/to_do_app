@@ -3,15 +3,17 @@ import styles from "./ToDoInput.module.scss";
 import TasksContext from "../../contexts/TasksContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import INPUT_SCHEMA from "../../common/validationSchema";
-import ErrMsg from '../ErrMsg';
+import ErrMsg from "../ErrMsg";
+import _ from "lodash";
 
 const ToDoInput = () => {
   const [tasks, setTasks] = useContext(TasksContext);
+  
 
   const handleBtnClick = (inputValue) => {
-    const oldTasks = tasks;
-    oldTasks.newTask(inputValue);
-    setTasks(oldTasks);
+    const newTasks = _.cloneDeep(tasks);
+    newTasks.newTask(inputValue);
+    setTasks(newTasks);
   };
 
   const onSubmit = (values, formikBag) => {
@@ -29,7 +31,10 @@ const ToDoInput = () => {
         <Form>
           <label>
             <Field type="text" name="input" />
-            <ErrorMessage name='input' children={(msg) => <ErrMsg msg={msg}/>} />
+            <ErrorMessage
+              name="input"
+              children={(msg) => <ErrMsg msg={msg} />}
+            />
           </label>
           <button type="submit">+</button>
         </Form>
