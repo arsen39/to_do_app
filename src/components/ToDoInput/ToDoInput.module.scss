@@ -1,6 +1,10 @@
 $base-color: #af7eeb;
 $secondary-color: #e3e9ff;
 
+.formWrapper{
+  position: relative;
+}
+
 .input {
   border: 3px solid $base-color;
   border-radius: 5px;
@@ -16,8 +20,8 @@ $secondary-color: #e3e9ff;
 
 .submitBtn {
   position: absolute;
-  left: 61.3%;
-  top: 11.2%;
+  right: 2%;
+  top: 15%;
   outline: none;
   background-color: $secondary-color;
   border: 3px solid $base-color;

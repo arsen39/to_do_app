@@ -22,7 +22,7 @@ const ToDoInput = () => {
   };
 
   return (
-    <div>
+    <div className={styles.formWrapper}>
       <Formik
         initialValues={{ input: "" }}
         onSubmit={onSubmit}
@@ -35,6 +35,7 @@ const ToDoInput = () => {
                 <input
                   type="text"
                   {...field}
+                  placeholder='Write some your task...'
                   className={cx(styles.input, {
                     [styles.inputInvalid]: meta.error,
                   })}

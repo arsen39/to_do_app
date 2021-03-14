@@ -20,6 +20,10 @@ class DB {
     oldTask.isDone = !oldTask.isDone;
     this.map.set(taskId, oldTask);
   }
+
+  isEmpty () {
+    return this.map.size === 0;
+  }
 }
 
 export default DB
